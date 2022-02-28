@@ -1,0 +1,46 @@
+  /* Container holding the image and the text */
+  .container {
+    min-width: 100%;
+    position: relative;
+    text-align: center;
+    color: #6ccbcb;
+    margin: 20;
+  }
+
+ /* Style the background image */
+ #backgroundImage {
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 1.5;
+    position: relative;
+  }
+
+  /* Title emplacement */
+.title-top {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Suppression point liste*/
+ul {
+  list-style-type: none;
+}
