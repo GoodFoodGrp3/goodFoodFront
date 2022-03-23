@@ -3,3 +3,8 @@ img {
     max-width: 5%;
     height: auto;
   }
+
+  .navbar {
+    border-bottom: 2px solid white;
+  }
+  
