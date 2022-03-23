@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'home-component', component: HomeComponent },
   { path: 'menu-component', component: MenusComponent },
   { path: 'login-component', component: LoginComponent },
+  { path: '',   redirectTo: '/home-component', pathMatch: 'full' }, // redirect to 
   { path: '**', component: PageNotFoundComponent },
 ];
 
