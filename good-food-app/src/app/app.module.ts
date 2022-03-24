@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MenusComponent,
     HomeComponent,
     PageNotFoundComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
