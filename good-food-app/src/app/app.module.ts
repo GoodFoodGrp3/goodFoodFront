@@ -11,6 +11,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { AddCardComponent } from './add-card/add-card.component';
+import { AddAddressComponent } from './add-address/add-address.component';
+import { ValidationComponent } from './validation/validation.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     PageNotFoundComponent,
     NavigationBarComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddCardComponent,
+    AddAddressComponent,
+    ValidationComponent
   ],
   imports: [
     BrowserModule,

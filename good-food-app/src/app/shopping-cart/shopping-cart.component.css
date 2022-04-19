@@ -1,0 +1,14 @@
+.img-article {
+  max-width: 20%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-del {
+  display: block;
+  max-width: 5%;
+  height: auto;
+  align-items: center;
+
+}
