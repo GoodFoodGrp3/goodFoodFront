@@ -3,81 +3,28 @@
         <div class="card">
             <h4 class="card-header text-center">Ajouter une adresse de livraison</h4>
             <div class="card-body">
-                <div class="register-form">
-                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                        <div class="form-group pt-3">
-                            <label>Numéro de la carte</label>
-                            <input type="number" formControlName="numCard" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f['numCard'].errors }" />
-                            <div *ngIf="submitted && f['numCard'].errors" class="invalid-feedback">
-                                <div *ngIf="f['numCard'].errors['required']">Numéro de la carte requis</div>
-                                <div *ngIf="f['numCard'].errors['minlength']">
-                                    Username must be at least 6 characters
-                                </div>
-                                <div *ngIf="f['numCard'].errors['maxlength']">
-                                    Username must not exceed 20 characters
-                                </div>
-                                <div *ngIf="f['numCard'].errors['pattern']">
-                                    Chiffres uniquement
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group pt-3">
-                            <label>Nom du propriétaire</label>
-                            <input type="text" formControlName="userCard" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f['userCard'].errors }" />
-                            <div *ngIf="submitted && f['userCard'].errors" class="invalid-feedback">
-                                <div *ngIf="f['userCard'].errors['required']">Nom propriétaire de la carte requis</div>
-                                <div *ngIf="f['userCard'].errors['minlength']"></div>
-                            </div>
-                        </div>
-                        <mat-form-field appearance="fill">
-                            <mat-label>Angular forms (w/ deserialization)</mat-label>
-                            <input matInput [matDatepicker]="picker2"
-                                   [formControl]="serializedDate">
-                            <mat-hint>MM/DD/YYYY</mat-hint>
-                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                            <mat-datepicker #picker2></mat-datepicker>
-                          </mat-form-field>
-                        <div class="form-group pt-3">
-                            <label>Code postal</label>
-                            <input type="postalCode" formControlName="postalCode" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f['postalCode'].errors }" />
-                            <div *ngIf="submitted && f['postalCode'].errors" class="invalid-feedback">
-                                <div *ngIf="f['postalCode'].errors['required']">
-                                    Code postal requis
-                                </div>
-                                <div *ngIf="f['postalCode'].errors['minlength']">
-                                    Code postal comporte 5 charactères
-                                </div>
-                                <div *ngIf="f['postalCode'].errors['maxlength']">
-                                    Code postal comporte 5 charactères
-                                </div>
-                                <div *ngIf="f['postalCode'].errors['pattern']">
-                                    Chiffres uniquement
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group pt-3">
-                            <label>Code de sécurité</label>
-                            <input type="number" formControlName="securityCode" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f['securityCode'].errors }" />
-                            <div *ngIf="submitted && f['securityCode'].errors" class="invalid-feedback">
-                                <div *ngIf="f['securityCode'].errors['required']">
-                                    Code de sécurité requis
-                                </div>
-                                <div *ngIf="f['securityCode'].errors['pattern']">
-                                    Chiffres uniquement
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group pt-3">
-                            <button type="submit" class="btn btn-primary">Register</button>
-                            <button type="button" (click)="onReset()" class="btn btn-warning float-right">
-                                Reset
-                            </button>
-                        </div>
-                    </form>
+                <div [formGroup]="form">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Numéro de la carte :</mat-label>
+                        <input matInput formControlName="numCard" type="number">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nom du propriétaire :</mat-label>
+                        <input matInput formControlName="userCard">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Date d'expiration</mat-label>
+                        <input matInput [matDatepicker]="dp" [formControl]="expirationDate">
+                        <mat-hint>MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                        <mat-datepicker #dp startView="multi-year" (monthSelected)="setMonthAndYear($event, dp)"
+                            panelClass="example-month-picker">
+                        </mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Code de sécurité :</mat-label>
+                        <input matInput formControlName="securityCode" type="number">
+                    </mat-form-field>
                 </div>
             </div>
         </div>
