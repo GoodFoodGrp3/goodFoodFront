@@ -12,4 +12,8 @@ export class MenusComponent implements OnInit {
   ngOnInit(): void {
   }
 
+    goArticle() {
+
+  }
+
 }

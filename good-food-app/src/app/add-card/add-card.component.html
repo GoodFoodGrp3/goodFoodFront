@@ -1,0 +1,32 @@
+<div class="my-component">
+    <div class="container pt-5">
+        <div class="card">
+            <h4 class="card-header text-center">Ajouter une adresse de livraison</h4>
+            <div class="card-body">
+                <div [formGroup]="form">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Numéro de la carte :</mat-label>
+                        <input matInput formControlName="numCard" type="number">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nom du propriétaire :</mat-label>
+                        <input matInput formControlName="userCard">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Date d'expiration</mat-label>
+                        <input matInput [matDatepicker]="dp" [formControl]="expirationDate">
+                        <mat-hint>MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                        <mat-datepicker #dp startView="multi-year" (monthSelected)="setMonthAndYear($event, dp)"
+                            panelClass="example-month-picker">
+                        </mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Code de sécurité :</mat-label>
+                        <input matInput formControlName="securityCode" type="number">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

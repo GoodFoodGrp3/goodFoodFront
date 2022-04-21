@@ -1,0 +1,88 @@
+<div class="my-component">
+    <div class="container pt-5">
+        <div class="card">
+            <h4 class="card-header text-center">Ajouter une adresse de livraison</h4>
+            <div class="card-body">
+                <div class="register-form">
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="form-group pt-3">
+                            <label>Nom</label>
+                            <input type="text" formControlName="username" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+                            <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                                <div *ngIf="f['username'].errors['required']">Username is required</div>
+                                <div *ngIf="f['username'].errors['minlength']">
+                                    Username must be at least 6 characters
+                                </div>
+                                <div *ngIf="f['username'].errors['maxlength']">
+                                    Username must not exceed 20 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <label>Numéro de téléphone</label>
+                            <input type="number" formControlName="number" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f['number'].errors }" />
+                            <div *ngIf="submitted && f['number'].errors" class="invalid-feedback">
+                                <div *ngIf="f['number'].errors['required']">Numéro de téléphone requis</div>
+                                <div *ngIf="f['number'].errors['minlength']"></div>
+                                <div *ngIf="f['number'].errors['pattern']">
+                                    Chiffres uniquement
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <label>Adresse</label>
+                            <input type="adress" formControlName="adress" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f['adress'].errors }" />
+                            <div *ngIf="submitted && f['adress'].errors" class="invalid-feedback">
+                                <div *ngIf="f['adress'].errors['required']">Adresse requise</div>
+                                <div *ngIf="f['adress'].errors['minlength']">
+                                    Address must be at least 6 characters
+                                </div>
+                                <div *ngIf="f['password'].errors['maxlength']">
+                                    Address must not exceed 40 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <label>Code postal</label>
+                            <input type="number" formControlName="postalCode" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f['postalCode'].errors }" />
+                            <div *ngIf="submitted && f['postalCode'].errors" class="invalid-feedback">
+                                <div *ngIf="f['postalCode'].errors['required']">
+                                    Code postal requis
+                                </div>
+                                <div *ngIf="f['postalCode'].errors['minlength']">
+                                    Code postal comporte 5 charactères
+                                </div>
+                                <div *ngIf="f['postalCode'].errors['maxlength']">
+                                    Code postal comporte 5 charactères
+                                </div>
+                                <div *ngIf="f['postalCode'].errors['pattern']">
+                                    Chiffres uniquement
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <label>Ville</label>
+                            <input type="city" formControlName="city" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" />
+                            <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                                <div *ngIf="f['city'].errors['required']">
+                                    Code postal requis
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group pt-3">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="button" (click)="onReset()" class="btn btn-warning float-right">
+                                Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,6 +11,16 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { AddCardComponent } from './add-card/add-card.component';
+import { AddAddressComponent } from './add-address/add-address.component';
+import { ValidationComponent } from './validation/validation.component';
+import { ArticleComponent } from './article/article.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
+
 
 @NgModule({
   declarations: [
@@ -21,13 +31,21 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     PageNotFoundComponent,
     NavigationBarComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddCardComponent,
+    AddAddressComponent,
+    ValidationComponent,
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
     FormsModule,
-    AppRoutingModule
+    MatInputModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
