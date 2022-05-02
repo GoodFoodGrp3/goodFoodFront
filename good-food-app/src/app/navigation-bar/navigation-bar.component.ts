@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
 
+  navbarCollapsed = true;
+  dataset = ['Hamburger', 'GoodFood', 'bacon'];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleNavbarCollapse() {
+    console.log("SHEEEESH")
+    this.navbarCollapsed = !this.navbarCollapsed;
   }
 
 }
