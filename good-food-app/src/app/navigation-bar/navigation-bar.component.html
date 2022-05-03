@@ -1,11 +1,10 @@
 <body>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #6ccbcb;">
+<nav class="navbar navbar-expand-lg navbar-light">
     <img  routerLink="/home-component" routerLinkActive="active" src="assets/goodfood-market--600.png">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <button (click)="toggleNavbarCollapse()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <div [ngClass]="{ collapse: navbarCollapsed }" class="navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item active">
           <a class="nav-link" routerLink="/home-component" routerLinkActive="active">Acceuil</a>

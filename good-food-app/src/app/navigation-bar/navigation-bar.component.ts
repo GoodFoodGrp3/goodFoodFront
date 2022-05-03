@@ -7,16 +7,16 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent implements OnInit {
-
   urlLogin = 'login-component'
   urlProfile = 'profile-component'
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
-  ngOnInit(): void {
+  navbarCollapsed = true;
+  dataset = ['Hamburger', 'GoodFood', 'bacon'];
 
-  }
-
+  ngOnInit(): void {}
+  
   goToProfile() {
     console.log("Passe dans la méthode")
     if (localStorage.getItem("passed") == "good") {
@@ -26,5 +26,9 @@ export class NavigationBarComponent implements OnInit {
       console.log("passe dans le login")
       this.router.navigateByUrl(this.urlLogin)
     }
+  }
+  
+  toggleNavbarCollapse() {
+    this.navbarCollapsed = !this.navbarCollapsed;
   }
 }
