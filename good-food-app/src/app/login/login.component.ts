@@ -8,8 +8,8 @@ import { LoginService } from '../services/login-service';
 
 @Component({
   selector: 'app-login',
-  providers: [LoginService],
   templateUrl: './login.component.html',
+  providers: [LoginService],
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -71,6 +71,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("SHHHEEEEEEESSSSSSH")
     this.submitted = true;
     // stop here if form is invalid
     if (this.form.invalid) {
@@ -78,10 +79,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-
-    /* if (this.userTest.username == this.f.username.value && this.userTest.password == this.loginForm.controls.password) {
-      console.log("LOOOOOGGGGGGGEEEEEDDDD")
-    } */
+    this.loginService.login(this.f['username'].value, this.f['password'].value);
 
     // reset alerts on submit
     //this.alertService.clear();

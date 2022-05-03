@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
 
-  constructor() { }
+  urlLogin = 'login-component'
+  urlProfile = 'profile-component'
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+
   }
 
+  goToProfile() {
+    console.log("Passe dans la méthode")
+    if (localStorage.getItem("passed") == "good") {
+      console.log("passe dans le profile")
+      this.router.navigateByUrl(this.urlProfile)
+    } else {
+      console.log("passe dans le login")
+      this.router.navigateByUrl(this.urlLogin)
+    }
+  }
 }

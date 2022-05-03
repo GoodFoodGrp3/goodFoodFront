@@ -9,6 +9,16 @@ export class LoginService {
     ) {}
 
     login(username, password) {
+        console.log("Passe dans le service")
+        if (username == "Roms" && password == "Roms") {
+            localStorage.setItem("passed", "good")
+            this.router.navigateByUrl('login-component')
+        } else {
+            console.log(
+                "%cStop!",
+                "color:red;font-family:system-ui;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold"
+              );
+        }
         /* return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
             .pipe(map(user => {
                  store user details and jwt token in local storage to keep user logged in between page refreshes
