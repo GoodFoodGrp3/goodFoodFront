@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MenusComponent } from './menus/menus.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ValidationComponent } from './validation/validation.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'home-component', component: HomeComponent },
   { path: 'menu-component', component: MenusComponent },
   { path: 'login-component', component: LoginComponent },
+  { path: 'profile-component', component: ProfileComponent },
   { path: 'register-component', component: RegisterComponent },
   { path: 'shopping-cart-component', component: ShoppingCartComponent },
   { path: 'validation-component', component: ValidationComponent },
