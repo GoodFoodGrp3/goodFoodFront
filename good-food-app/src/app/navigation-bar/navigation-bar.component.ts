@@ -15,8 +15,8 @@ export class NavigationBarComponent implements OnInit {
   navbarCollapsed = true;
   dataset = ['Hamburger', 'GoodFood', 'bacon'];
 
-  ngOnInit(): void {}
-  
+  ngOnInit(): void { }
+
   goToProfile() {
     console.log("Passe dans la méthode")
     if (localStorage.getItem("passed") == "good") {
@@ -24,10 +24,10 @@ export class NavigationBarComponent implements OnInit {
       this.router.navigateByUrl(this.urlProfile)
     } else {
       console.log("passe dans le login")
-      this.router.navigateByUrl(this.urlLogin)
+      this.router.navigateByUrl(this.urlProfile)
     }
   }
-  
+
   toggleNavbarCollapse() {
     this.navbarCollapsed = !this.navbarCollapsed;
   }
