@@ -1,0 +1,15 @@
+img {
+  display: block;
+  max-width: 10%;
+  height: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  font-size: large;
+  text-decoration: underline;
+
+}

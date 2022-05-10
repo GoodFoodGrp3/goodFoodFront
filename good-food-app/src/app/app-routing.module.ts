@@ -22,8 +22,9 @@ const routes: Routes = [
   { path: 'validation-component', component: ValidationComponent },
   { path: 'add-address-component', component: AddAddressComponent },
   { path: 'add-card-component', component: AddCardComponent },
-  { path: 'article-component/:id', component: ArticleComponent },
-  { path: '',   redirectTo: '/home-component', pathMatch: 'full' }, // redirect to 
+  //{ path: 'article-component/:id', component: ArticleComponent },
+  { path: 'article-component', component: ArticleComponent },
+  { path: '', redirectTo: '/home-component', pathMatch: 'full' }, // redirect to 
   { path: '**', component: PageNotFoundComponent },
 ];
 
