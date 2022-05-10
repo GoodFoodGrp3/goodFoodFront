@@ -1,22 +1,12 @@
-<div class="my-component">
-    <div class="row">
-      <div class="col-sm">
-        <img class="" src="assets/art_burg.jpg" alt="Card image cap">
-        
-      </div>
-      <div class="col-sm">
-        <h3>Hamburger  :</h3>
-        <p>Prix : 28euros</p>
-        <p>Livraison gratuite</p>
-        <p>Description du produit :</p>
-        <p>Hamburger maison de bonne qualité.</p>
-      </div>
-      <div class="col-sm">
-        <button type="button" class="btn btn-warning" routerLink="/validation-component">Ajouter au panier</button>
-        <button type="button" class="btn btn-warning" routerLink="/validation-component">Acheter cet article</button>
-      </div>
-    </div>
-    <div class="card mb-5">
-      <img class="" src="assets/art_burg.jpg" alt="Card image cap">
+<div class="my-component pt-5">
+  <div class="container">
+    <img class="img-back pb-2" src="assets/back-arrow.png" (click)="backWithLocation()">
+    <div class="card">
+      <img class="img-article pt-3 pb-3" src="assets/art_burg.jpg" alt="Card image cap">
       <h5 class="card-title">Hambuger</h5>
       <p class="card-text">Un hamburger avec fromagee et bacon.</p>
+          <button type="button" class="btn btn-warning">Ajouter au panier</button>
+          <button type="button" class="btn btn-primary">Acheter</button>
+      </div>
+    </div>
+    </div>
