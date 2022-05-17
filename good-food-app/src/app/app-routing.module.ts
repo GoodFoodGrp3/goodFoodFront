@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { AddCardComponent } from './add-card/add-card.component';
 import { ArticleComponent } from './article/article.component';
+import { CommandComponent } from './command/command.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MenusComponent } from './menus/menus.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ValidationComponent } from './validation/validation.component';
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'add-address-component', component: AddAddressComponent },
   { path: 'add-card-component', component: AddCardComponent },
   { path: 'article-component/:id', component: ArticleComponent },
+  { path: 'profile-component', component: ProfileComponent },
+  { path: 'command-component', component: CommandComponent },
   { path: '',   redirectTo: '/home-component', pathMatch: 'full' }, // redirect to 
   { path: '**', component: PageNotFoundComponent },
 ];

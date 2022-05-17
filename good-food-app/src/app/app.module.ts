@@ -19,6 +19,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { ProfileComponent } from './profile/profile.component';
+import { CommandComponent } from './command/command.component';
 
 
 
@@ -36,6 +38,8 @@ import {MatInputModule} from '@angular/material/input';
     AddAddressComponent,
     ValidationComponent,
     ArticleComponent,
+    ProfileComponent,
+    CommandComponent,
   ],
   imports: [
     BrowserModule,
