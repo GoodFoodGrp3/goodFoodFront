@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ProfileComponent } from './profile/profile.component';
+import { CommandComponent } from './command/command.component';
 
 
 
@@ -38,6 +39,7 @@ import { ProfileComponent } from './profile/profile.component';
     ValidationComponent,
     ArticleComponent,
     ProfileComponent,
+    CommandComponent,
   ],
   imports: [
     BrowserModule,

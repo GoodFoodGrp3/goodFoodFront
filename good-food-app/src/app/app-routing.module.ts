@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { AddCardComponent } from './add-card/add-card.component';
 import { ArticleComponent } from './article/article.component';
+import { CommandComponent } from './command/command.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MenusComponent } from './menus/menus.component';
@@ -15,6 +16,7 @@ import { ValidationComponent } from './validation/validation.component';
 const routes: Routes = [
   { path: 'home-component', component: HomeComponent },
   { path: 'menu-component', component: MenusComponent },
+  { path: 'command-component', component: CommandComponent },
   { path: 'login-component', component: LoginComponent },
   { path: 'profile-component', component: ProfileComponent },
   { path: 'register-component', component: RegisterComponent },
