@@ -1,25 +1,25 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
-    <img  routerLink="/home-component" routerLinkActive="active" src="assets/goodfood-market--600.png">
+    <img  routerLink="/home" routerLinkActive="active" src="assets/goodfood-market--600.png">
     <button (click)="toggleNavbarCollapse()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div [ngClass]="{ collapse: navbarCollapsed }" class="navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/home-component" routerLinkActive="active">Acceuil</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Acceuil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/menu-component" routerLinkActive="active">La carte</a>
+          <a class="nav-link" routerLink="/menu" routerLinkActive="active">La carte</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/command-component" routerLinkActive="active">Commandes</a>
+          <a class="nav-link" routerLink="/command" routerLinkActive="active">Commandes</a>
         </li>
         <li class="nav-item">
           <a routerLink="" (click)="goToProfile()" class="nav-link">Profil</a>
         </li>     
       </ul>
-      <img class="nav-item pr-3" routerLink="/shopping-cart-component" routerLinkActive="active" src="assets/icons8-caddie-48.png">
+      <img class="nav-item pr-3" routerLink="/shopping-cart" routerLinkActive="active" src="assets/icons8-caddie-48.png">
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

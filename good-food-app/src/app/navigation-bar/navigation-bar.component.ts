@@ -19,13 +19,8 @@ export class NavigationBarComponent implements OnInit {
 
   goToProfile() {
     console.log("Passe dans la méthode")
-    if (localStorage.getItem("passed") == "good") {
-      console.log("passe dans le profile")
-      this.router.navigateByUrl(this.urlProfile)
-    } else {
       console.log("passe dans le login")
-      this.router.navigateByUrl(this.urlProfile)
-    }
+      this.router.navigateByUrl('/login')
   }
 
   toggleNavbarCollapse() {

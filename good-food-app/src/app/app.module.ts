@@ -21,6 +21,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ProfileComponent } from './profile/profile.component';
 import { CommandComponent } from './command/command.component';
+import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { LoginService } from './services/login-service';
 
 
 
@@ -42,16 +45,18 @@ import { CommandComponent } from './command/command.component';
     CommandComponent,
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
     ReactiveFormsModule,
     MatDatepickerModule,
     MatFormFieldModule,
     FormsModule,
+    HttpClientModule,
     MatInputModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

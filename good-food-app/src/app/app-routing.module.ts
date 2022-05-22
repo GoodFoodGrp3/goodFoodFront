@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AuthGuardService as AuthGuard} from './services/auth-guard-service';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { AddCardComponent } from './add-card/add-card.component';
 import { ArticleComponent } from './article/article.component';
@@ -14,19 +15,19 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ValidationComponent } from './validation/validation.component';
 
 const routes: Routes = [
-  { path: 'home-component', component: HomeComponent },
-  { path: 'menu-component', component: MenusComponent },
-  { path: 'command-component', component: CommandComponent },
-  { path: 'login-component', component: LoginComponent },
-  { path: 'profile-component', component: ProfileComponent },
-  { path: 'register-component', component: RegisterComponent },
-  { path: 'shopping-cart-component', component: ShoppingCartComponent },
-  { path: 'validation-component', component: ValidationComponent },
-  { path: 'add-address-component', component: AddAddressComponent },
-  { path: 'add-card-component', component: AddCardComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'menu', component: MenusComponent },
+  { path: 'command', component: CommandComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  { path: 'register', component: RegisterComponent },
+  { path: 'shopping-cart', component: ShoppingCartComponent },
+  { path: 'validation', component: ValidationComponent , canActivate: [AuthGuard]},
+  { path: 'add-address', component: AddAddressComponent, canActivate: [AuthGuard] },
+  { path: 'add-card', component: AddCardComponent , canActivate: [AuthGuard]},
   //{ path: 'article-component/:id', component: ArticleComponent },
   { path: 'article-component', component: ArticleComponent },
-  { path: '', redirectTo: '/home-component', pathMatch: 'full' }, // redirect to 
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // redirect to 
   { path: '**', component: PageNotFoundComponent },
 ];
 

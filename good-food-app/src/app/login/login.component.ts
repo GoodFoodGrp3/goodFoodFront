@@ -9,7 +9,6 @@ import { LoginService } from '../services/login-service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  providers: [LoginService],
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -21,6 +20,9 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl?: string;
+  errorLogin: any;
+  connexionForm!: FormGroup;
+  errorConnection= false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,6 +41,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(sessionStorage.getItem('token') != null && sessionStorage.getItem('token')!.length > 1)
+    {
+        this.router.navigateByUrl('/profile');
+    }
     this.form = this.formBuilder.group(
       {
         fullname: ['', Validators.required],
@@ -50,13 +56,13 @@ export class LoginComponent implements OnInit {
             Validators.maxLength(20)
           ]
         ],
-        email: ['', [Validators.required, Validators.email]],
+        email: [/* '', [Validators.required, Validators.email] */],
         password: [
           '',
           [
-            Validators.required,
+           /*  Validators.required,
             Validators.minLength(6),
-            Validators.maxLength(40)
+            Validators.maxLength(40) */
           ]
         ],
       },
@@ -71,27 +77,22 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("SHHHEEEEEEESSSSSSH")
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.form.invalid) {
-      return;
+    console.log(this.form.value + " DATA")
+    this.loginService.CheckUser(this.form.value).subscribe
+    ({
+      next: (data: any) =>
+      {
+        sessionStorage.setItem('token',data['token']);
+        window.location.reload();
+      },
+
+      error: (error: any) =>
+      {
+        this.errorLogin = error.error.details;
+        this.errorConnection = true;
+      }
+
     }
-
-    this.loading = true;
-    this.loginService.login(this.f['username'].value, this.f['password'].value);
-
-    // reset alerts on submit
-    //this.alertService.clear();
-    /* this.accountService.login(this.f.username.value, this.f.password.value)
-    .pipe(first())
-    .subscribe(
-        data => {
-            this.router.navigate([this.returnUrl]);
-        },
-        error => {
-            this.alertService.error(error);
-            this.loading = false;
-        }); */
+    );
   }
 }
