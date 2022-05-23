@@ -82,6 +82,7 @@ export class LoginComponent implements OnInit {
     ({
       next: (data: any) =>
       {
+        console.log(JSON.stringify(data), + " Voici la data de la connexion")
         sessionStorage.setItem('token',data['token']);
         window.location.reload();
       },
