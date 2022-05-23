@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Products } from '../models/products';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-menus',
@@ -7,12 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenusComponent implements OnInit {
 
-  constructor() { }
+  products!: Products[]
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.getProducts()
   }
 
-    goArticle() {
+    getProducts() {
+      this.productService.getProducts().subscribe(
+        data => {
+          console.log(data + "Données des productions")
+          this.products = data;
+        }
+      )
+
 
   }
 

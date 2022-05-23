@@ -24,6 +24,8 @@ import { CommandComponent } from './command/command.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LoginService } from './services/login-service';
+import { ProductService } from './services/product.service';
+import { CustomerService } from './services/customer.service';
 
 
 
@@ -56,7 +58,7 @@ import { LoginService } from './services/login-service';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, ProductService, CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
