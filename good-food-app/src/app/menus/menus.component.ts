@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Categories } from '../models/categories';
 import { Products } from '../models/products';
 import { ProductService } from '../services/product.service';
 
@@ -10,6 +11,7 @@ import { ProductService } from '../services/product.service';
 export class MenusComponent implements OnInit {
 
   products!: Products[]
+  categories!: Categories[]
 
   constructor(private productService: ProductService) { }
 
@@ -24,8 +26,6 @@ export class MenusComponent implements OnInit {
           this.products = data;
         }
       )
-
-
   }
 
 }

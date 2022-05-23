@@ -1,49 +1,19 @@
 <body>
-    <div class="my-component">
+<div class="my-component">
 <div class="container pt-5">
   <h1 class="title-top text-center">La carte !</h1>
-    <div class="row pt-3">
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="assets/art_burg.jpg" alt="Card image cap">
+  <div class="row pt-3">
+      <div class="col" *ngFor = "let product of products">
+        <div class="card" style="width: 18rem; height: auto;">
+            <img class="card-img-top" src="{{product.categories.image}}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Hambuger</h5>
-              <p class="card-text">Un hamburger avec fromagee et bacon.</p>
+              <h5 class="card-title">{{product.categories.category_name}}</h5>
+              <p class="card-text">{{product.categories.text_description}}</p>
               <a href="#" class="btn btn-warning" routerLink="/article-component">Voir</a>
             </div>
           </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="assets/art_burg.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Hambuger</h5>
-              <p class="card-text">Un hamburger avec fromagee et bacon.</p>
-              <a href="#" class="btn btn-warning">Voir</a>
-            </div>
-          </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="assets/art_burg.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Hambuger</h5>
-              <p class="card-text">Un hamburger avec fromagee et bacon.</p>
-              <a href="#" class="btn btn-warning">Voir</a>
-            </div>
-          </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="assets/art_burg.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Hambuger</h5>
-              <p class="card-text">Un hamburger avec fromagee et bacon.</p>
-              <a href="#" class="btn btn-warning">Voir</a>
-            </div>
-          </div>
-      </div>
     </div>
   </div>
+</div>
 </div>
 </body>
