@@ -26,6 +26,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { LoginService } from './services/login-service';
 import { ProductService } from './services/product.service';
 import { CustomerService } from './services/customer.service';
+import { RegisterService } from './services/register.service';
 
 
 
@@ -58,7 +59,7 @@ import { CustomerService } from './services/customer.service';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [LoginService, ProductService, CustomerService],
+  providers: [LoginService, ProductService, CustomerService, RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

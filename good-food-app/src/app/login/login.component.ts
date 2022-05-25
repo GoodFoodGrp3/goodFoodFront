@@ -86,13 +86,11 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('token',data['token']);
         window.location.reload();
       },
-
       error: (error: any) =>
       {
         this.errorLogin = error.error.details;
         this.errorConnection = true;
       }
-
     }
     );
   }

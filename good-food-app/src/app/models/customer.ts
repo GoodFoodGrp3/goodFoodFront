@@ -9,5 +9,10 @@ export interface Customer {
   lastname: string,
   phone: string,
   postal_code: string,
+  password: string,
+  cpassword: string,
+  comment: string,
+  employee: string,
   state: string
 }
+

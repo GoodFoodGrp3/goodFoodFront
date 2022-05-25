@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RegisterService } from '../services/register.service';
 import Validation from '../utils/validation';
 
 @Component({
@@ -10,20 +12,39 @@ import Validation from '../utils/validation';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
-    fullname: new FormControl(''),
-    username: new FormControl(''),
+    lastname: new FormControl(''),
+    firstname: new FormControl(''),
     email: new FormControl(''),
+    city: new FormControl(''),
+    postalCode: new FormControl(''),
+    addressline1: new FormControl(''),
+    phone: new FormControl(''),
+    username: new FormControl(''),
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
     acceptTerms: new FormControl(false),
   });
+  notGoodPassword = false;
   submitted = false;
-  constructor(private formBuilder: FormBuilder) {}
+  erroraddUser : any;
+  
+  constructor(private formBuilder: FormBuilder, private registerService: RegisterService,  private router: Router) {}
+
   ngOnInit(): void {
+    this.initForm()
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }
+
+  initForm(){
+    //Minimum eight Characters, at least one uppercase letter, one lowercase letter, one number and one special character:
+    let regex = /"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/;
     this.form = this.formBuilder.group(
       {
-        fullname: ['', Validators.required],
-        username: [
+        lastname: ['', Validators.required],
+        firstname: [
           '',
           [
             Validators.required,
@@ -32,15 +53,39 @@ export class RegisterComponent implements OnInit {
           ]
         ],
         email: ['', [Validators.required, Validators.email]],
-        password: [
+        
+        city: ['', [Validators.required, Validators.email]],
+        postalCode: ['', 
+                    [Validators.required, 
+                    Validators.minLength(5),
+                    Validators.maxLength(5)]
+                  ],
+        addressline1: ['', [Validators.required]],
+        phone: ['', [Validators.required]],
+        username: [
           '',
           [
             Validators.required,
             Validators.minLength(6),
-            Validators.maxLength(40)
+            Validators.maxLength(20)
           ]
         ],
-        confirmPassword: ['', Validators.required],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(8),
+            Validators.maxLength(40),
+            Validators.pattern(regex)
+          ]
+        ],
+        confirmPassword: [
+           '',
+           Validators.required,
+           Validators.minLength(8),
+           Validators.maxLength(40),
+           Validators.pattern(regex)
+          ],
         acceptTerms: [false, Validators.requiredTrue]
       },
       {
@@ -49,15 +94,31 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  get f(): { [key: string]: AbstractControl } {
-    return this.form.controls;
-  }
   onSubmit(): void {
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }
     console.log(JSON.stringify(this.form.value, null, 2));
+    if(this.form.get('password')!.value != this.form.get('cpassword')!.value)
+    {
+      console.log(" Ca Match Pas ")
+      return;
+    }
+
+    else
+    {
+      this.registerService.createCustomer(this.form.value).subscribe({
+        next: data => {
+          console.log("Good voici le form ==> " + this.form.value + " Voici les daatas " + data)
+          this.router.navigateByUrl('/login');
+        },
+        error: error => {
+          console.log(error);
+          this.erroraddUser = error.error.details;
+        }
+      });
+    }
   }
   onReset(): void {
     this.submitted = false;
