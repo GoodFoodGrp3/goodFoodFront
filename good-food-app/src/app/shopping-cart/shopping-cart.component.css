@@ -10,5 +10,8 @@
   max-width: 5%;
   height: auto;
   align-items: center;
+}
 
+.card {
+  text-align: center;
 }
