@@ -27,6 +27,7 @@ import { LoginService } from './services/login-service';
 import { ProductService } from './services/product.service';
 import { CustomerService } from './services/customer.service';
 import { RegisterService } from './services/register.service';
+import { MainHomeComponent } from './main-home/main-home.component';
 
 
 
@@ -46,6 +47,7 @@ import { RegisterService } from './services/register.service';
     ArticleComponent,
     ProfileComponent,
     CommandComponent,
+    MainHomeComponent,
   ],
   imports: [
     MatDialogModule,
