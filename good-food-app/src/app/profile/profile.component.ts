@@ -15,13 +15,7 @@ export class ProfileComponent implements OnInit {
   constructor(private customerService: CustomerService, private router: Router) { }
 
   ngOnInit(): void {
-    console.log("LA TOKKKKENN" + sessionStorage.getItem('token'))
     this.checkUsers(sessionStorage.getItem('token'));
-  }
-
-  logout() {
-    sessionStorage.clear()
-    this.router.navigateByUrl('/home')
   }
 
   checkUsers(token : any){

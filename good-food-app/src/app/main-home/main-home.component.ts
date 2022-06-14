@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Office } from '../models/offices';
+import { OfficeService } from '../services/office.service';
 
 @Component({
   selector: 'app-main-home',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainHomeComponent implements OnInit {
 
-  constructor() { }
+    listOffices!: Office[];
+
+  constructor(private officeService: OfficeService) { }
 
   ngOnInit(): void {
+    this.getOffices()
   }
+
+  getOffices() {
+    this.officeService.getOffices().subscribe(
+      data => {
+        console.log(data + "Données des restaurants")
+        this.listOffices = data;
+      }
+    )
+}
 
 }

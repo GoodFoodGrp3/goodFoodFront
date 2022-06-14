@@ -13,14 +13,22 @@ export class NavigationBarComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   navbarCollapsed = true;
+  detectUser = sessionStorage.getItem('token')
   dataset = ['Hamburger', 'GoodFood', 'bacon'];
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+   }
 
   goToProfile() {
     console.log("Passe dans la méthode")
       console.log("passe dans le login")
       this.router.navigateByUrl('/login')
+  }
+
+  deconnect() {
+    sessionStorage.clear();
+    location.reload();
   }
 
   toggleNavbarCollapse() {

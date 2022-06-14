@@ -48,13 +48,11 @@ export class RegisterComponent implements OnInit {
           '',
           [
             Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(20)
           ]
         ],
         email: ['', [Validators.required, Validators.email]],
         
-        city: ['', [Validators.required, Validators.email]],
+        city: ['', [Validators.required]],
         postalCode: ['', 
                     [Validators.required, 
                     Validators.minLength(5),
@@ -74,17 +72,12 @@ export class RegisterComponent implements OnInit {
           '',
           [
             Validators.required,
-            Validators.minLength(8),
-            Validators.maxLength(40),
             Validators.pattern(regex)
           ]
         ],
         confirmPassword: [
            '',
            Validators.required,
-           Validators.minLength(8),
-           Validators.maxLength(40),
-           Validators.pattern(regex)
           ],
         acceptTerms: [false, Validators.requiredTrue]
       },
@@ -108,7 +101,8 @@ export class RegisterComponent implements OnInit {
 
     else
     {
-      this.registerService.createCustomer(this.form.value).subscribe({
+      console.log(" PASSED")
+      /* this.registerService.createCustomer(this.form.value).subscribe({
         next: data => {
           console.log("Good voici le form ==> " + this.form.value + " Voici les daatas " + data)
           this.router.navigateByUrl('/login');
@@ -117,7 +111,7 @@ export class RegisterComponent implements OnInit {
           console.log(error);
           this.erroraddUser = error.error.details;
         }
-      });
+      }) */;
     }
   }
   onReset(): void {

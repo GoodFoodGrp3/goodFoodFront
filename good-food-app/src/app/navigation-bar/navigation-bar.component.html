@@ -12,12 +12,18 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/menu" routerLinkActive="active">La carte</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="detectUser != null" class="nav-item">
           <a class="nav-link" routerLink="/command" routerLinkActive="active">Commandes</a>
         </li>
-        <li class="nav-item">
-          <a routerLink="" (click)="goToProfile()" class="nav-link">Profil</a>
-        </li>     
+        <li *ngIf="detectUser == null" class="nav-item">
+          <a routerLink="/login" class="nav-link">Se connecter</a>
+        </li>
+        <li *ngIf="detectUser != null" class="nav-item">
+          <a routerLink="/profile" class="nav-link">Profil</a>
+        </li>
+        <li *ngIf="detectUser != null" class="nav-item">
+          <a routerLink="" (click)="deconnect()" class="nav-link">Se déconnecter</a>
+        </li>
       </ul>
       <img class="nav-item pr-3" routerLink="/shopping-cart" routerLinkActive="active" src="assets/icons8-caddie-48.png">
       <form class="form-inline my-2 my-lg-0">

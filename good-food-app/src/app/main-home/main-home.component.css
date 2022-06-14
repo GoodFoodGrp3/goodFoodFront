@@ -5,7 +5,12 @@
 }
 
 .subCard {
+  padding: 10;
   width: auto;
   height: 10rem;
-
+  justify-content: center;
 }
+
+a { color: inherit;
+    text-decoration: none;
+  } 
