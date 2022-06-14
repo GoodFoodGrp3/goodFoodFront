@@ -40,7 +40,8 @@ export class RegisterComponent implements OnInit {
 
   initForm(){
     //Minimum eight Characters, at least one uppercase letter, one lowercase letter, one number and one special character:
-    let regex = /"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/;
+    let regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+    var testRegex = new RegExp(/"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/);
     this.form = this.formBuilder.group(
       {
         lastname: ['', Validators.required],
@@ -72,7 +73,7 @@ export class RegisterComponent implements OnInit {
           '',
           [
             Validators.required,
-            Validators.pattern(regex)
+            Validators.pattern(new RegExp(regex))
           ]
         ],
         confirmPassword: [
@@ -91,17 +92,10 @@ export class RegisterComponent implements OnInit {
     this.submitted = true;
     if (this.form.invalid) {
       return;
-    }
-    console.log(JSON.stringify(this.form.value, null, 2));
-    if(this.form.get('password')!.value != this.form.get('cpassword')!.value)
-    {
-      console.log(" Ca Match Pas ")
-      return;
-    }
-
-    else
-    {
+    } else {
+      console.log(JSON.stringify(this.form.value));
       console.log(" PASSED")
+    }
       /* this.registerService.createCustomer(this.form.value).subscribe({
         next: data => {
           console.log("Good voici le form ==> " + this.form.value + " Voici les daatas " + data)
@@ -112,7 +106,6 @@ export class RegisterComponent implements OnInit {
           this.erroraddUser = error.error.details;
         }
       }) */;
-    }
   }
   onReset(): void {
     this.submitted = false;

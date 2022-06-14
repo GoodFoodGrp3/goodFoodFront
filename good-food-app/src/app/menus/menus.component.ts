@@ -16,7 +16,7 @@ export class MenusComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.getProducts()
+    //this.getProducts()
   }
 
     getProducts() {
