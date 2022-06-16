@@ -54,7 +54,7 @@
             </div>
             <div class="form-group pt-3">
               <label>Code postal</label>
-              <input type="number" formControlName="postalCode" class="form-control"
+              <input formControlName="postalCode" class="form-control"
                 [ngClass]="{ 'is-invalid': submitted && f['postalCode'].errors }" />
               <div *ngIf="submitted && f['postalCode'].errors" class="invalid-feedback">
                 <div *ngIf="f['postalCode'].errors['required']">
@@ -74,7 +74,7 @@
             </div>
             <div class="form-group pt-3">
               <label>Numéro de téléphone</label>
-              <input type="number" formControlName="phone" class="form-control"
+              <input formControlName="phone" class="form-control"
                 [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }" />
               <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
                 <div *ngIf="f['phone'].errors['required']">Numéro de téléphone requis requis</div>

@@ -13,4 +13,23 @@
 
 a { color: inherit;
     text-decoration: none;
-  } 
+  }
+  
+   /* Style the background image */
+ #backgroundImage {
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 1.5;
+  position: relative;
+}
+
+ /* Container holding the image and the text */
+ .container {
+  min-width: 100%;
+  position: relative;
+  text-align: center;
+  color: #6ccbcb;
+  margin: 20;
+}

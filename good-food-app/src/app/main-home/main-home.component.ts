@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Office } from '../models/offices';
 import { OfficeService } from '../services/office.service';
 
@@ -10,8 +11,9 @@ import { OfficeService } from '../services/office.service';
 export class MainHomeComponent implements OnInit {
 
     listOffices!: Office[];
+    isSelectedOffice = false;
 
-  constructor(private officeService: OfficeService) { }
+  constructor(private officeService: OfficeService, private router: Router) { }
 
   ngOnInit(): void {
     this.getOffices()
@@ -20,10 +22,15 @@ export class MainHomeComponent implements OnInit {
   getOffices() {
     this.officeService.getOffices().subscribe(
       data => {
-        console.log(data + "Données des restaurants")
+        console.log("Les datas   --->  " + data)
         this.listOffices = data;
+        console.log(this.listOffices + "Données des restaurants")
       }
     )
 }
 
+  selectOffice() {
+    this.isSelectedOffice = true;
+    this.router.navigateByUrl('/home');
+  }
 }

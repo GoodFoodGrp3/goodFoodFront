@@ -16,12 +16,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkUsers(sessionStorage.getItem('token'));
+
   }
 
   checkUsers(token : any){
     this.customerService.CheckUserToken(token).subscribe(
       reponse => {
         this.userConnected = reponse;
+        sessionStorage.setItem('adresse', this.userConnected.addressline1 + ' ' + this.userConnected.addressline2)
         console.log(this.userConnected)
         //this.getUser(reponse.id);
       });

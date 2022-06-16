@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValidationComponent implements OnInit {
 
+ adresse = sessionStorage.getItem('adresse');
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log("Adresse de l'user  " + this.adresse)
   }
 
 }

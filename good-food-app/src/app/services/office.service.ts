@@ -9,6 +9,8 @@ import { Office } from '../models/offices';
 })
 export class OfficeService {
 
+  offfices!:Office[];
+
   constructor(
     private httpClient : HttpClient
   ) { }

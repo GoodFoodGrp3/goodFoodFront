@@ -1,10 +1,10 @@
 export interface Office {
+    id: number,
+    city: string,
+    phone: string,
     addressLine1: string,
     addressLine2: string,
-    city: string,
-    country: string,
-    id: 0,
-    phone: string,
+    state: string 
+    country: string, 
     postalCode: string,
-    state: string
 }

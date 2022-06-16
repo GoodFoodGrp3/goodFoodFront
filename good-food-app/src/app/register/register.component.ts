@@ -82,6 +82,7 @@ export class RegisterComponent implements OnInit {
           ],
         acceptTerms: [false, Validators.requiredTrue]
       },
+      
       {
         validators: [Validation.match('password', 'confirmPassword')]
       }
@@ -96,16 +97,16 @@ export class RegisterComponent implements OnInit {
       console.log(JSON.stringify(this.form.value));
       console.log(" PASSED")
     }
-      /* this.registerService.createCustomer(this.form.value).subscribe({
+       this.registerService.createCustomer(this.form.value).subscribe({
         next: data => {
           console.log("Good voici le form ==> " + this.form.value + " Voici les daatas " + data)
-          this.router.navigateByUrl('/login');
+        //  this.router.navigateByUrl('/login');
         },
         error: error => {
           console.log(error);
           this.erroraddUser = error.error.details;
         }
-      }) */;
+      });
   }
   onReset(): void {
     this.submitted = false;
