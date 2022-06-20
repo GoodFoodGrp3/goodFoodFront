@@ -15,20 +15,19 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   goToValidation() {
-    if(sessionStorage.getItem('token') != null && sessionStorage.getItem('token')!.length > 1)
-    {
-        this.router.navigateByUrl('/validation');
+    if (sessionStorage.getItem('token') != null && sessionStorage.getItem('token')!.length > 1) {
+      this.router.navigateByUrl('/payment');
     } else {
-      this.dialog.open(DialogDataExampleDialog, { });
-    }
+      this.dialog.open(DialogDataExampleDialog, {});
     }
   }
+}
 
-  /* @Component({
-    selector: 'dialog-data-example-dialog',
-    templateUrl: 'dialog-data-example-dialog.html',
-  }) */
-  export class DialogDataExampleDialog {
-    constructor(@Inject(MAT_DIALOG_DATA) public title: "Veuillez vous connecter!") {}
-  }
+/* @Component({
+  selector: 'dialog-data-example-dialog',
+  templateUrl: 'dialog-data-example-dialog.html',
+}) */
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public title: "Veuillez vous connecter!") { }
+}
 

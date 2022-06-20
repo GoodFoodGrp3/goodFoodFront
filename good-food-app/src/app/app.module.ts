@@ -15,19 +15,21 @@ import { AddCardComponent } from './add-card/add-card.component';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { ValidationComponent } from './validation/validation.component';
 import { ArticleComponent } from './article/article.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { ProfileComponent } from './profile/profile.component';
 import { CommandComponent } from './command/command.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { LoginService } from './services/login-service';
 import { ProductService } from './services/product.service';
 import { CustomerService } from './services/customer.service';
 import { RegisterService } from './services/register.service';
 import { MainHomeComponent } from './main-home/main-home.component';
+import { StripeModule } from 'stripe-angular';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -48,6 +50,7 @@ import { MainHomeComponent } from './main-home/main-home.component';
     ProfileComponent,
     CommandComponent,
     MainHomeComponent,
+    PaymentComponent,
   ],
   imports: [
     MatDialogModule,
@@ -59,6 +62,7 @@ import { MainHomeComponent } from './main-home/main-home.component';
     HttpClientModule,
     MatInputModule,
     AppRoutingModule,
+    StripeModule.forRoot(""),
     BrowserAnimationsModule
   ],
   providers: [LoginService, ProductService, CustomerService, RegisterService],
