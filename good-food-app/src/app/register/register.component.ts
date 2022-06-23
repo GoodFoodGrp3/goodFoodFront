@@ -15,18 +15,20 @@ export class RegisterComponent implements OnInit {
     lastname: new FormControl(''),
     firstname: new FormControl(''),
     email: new FormControl(''),
+    country: new FormControl(''),
     city: new FormControl(''),
     postalCode: new FormControl(''),
     addressline1: new FormControl(''),
     phone: new FormControl(''),
     username: new FormControl(''),
     password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-    acceptTerms: new FormControl(false),
+    cpassword: new FormControl(''),
   });
+
   notGoodPassword = false;
   submitted = false;
   erroraddUser : any;
+  invalid = [];
   
   constructor(private formBuilder: FormBuilder, private registerService: RegisterService,  private router: Router) {}
 
@@ -54,6 +56,7 @@ export class RegisterComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         
         city: ['', [Validators.required]],
+        country: ['', [Validators.required]],
         postalCode: ['', 
                     [Validators.required, 
                     Validators.minLength(5),
@@ -76,11 +79,10 @@ export class RegisterComponent implements OnInit {
             Validators.pattern(new RegExp(regex))
           ]
         ],
-        confirmPassword: [
+        cpassword: [
            '',
            Validators.required,
           ],
-        acceptTerms: [false, Validators.requiredTrue]
       },
       
       {
@@ -89,25 +91,41 @@ export class RegisterComponent implements OnInit {
     );
   }
 
+  public findInvalidControls() {
+    const controls = this.form.controls;
+    for (const name in controls) {
+        if (controls[name].invalid) {
+            this.invalid.push(name);
+        }
+    }
+    console.log(this.invalid.length + "Nombre dans la liste")
+    return this.invalid;
+}
+
   onSubmit(): void {
+    this.findInvalidControls()
     this.submitted = true;
-    if (this.form.invalid) {
+    console.log(this.form.value)
+    if (this.invalid.length > 0 ) {
+      console.log(this.invalid)
+      console.log("Don't work")
       return;
     } else {
-      console.log(JSON.stringify(this.form.value));
-      console.log(" PASSED")
-    }
-       this.registerService.createCustomer(this.form.value).subscribe({
+      /* this.registerService.createCustomer(this.form.value).subscribe({
         next: data => {
           console.log("Good voici le form ==> " + this.form.value + " Voici les daatas " + data)
-        //  this.router.navigateByUrl('/login');
+          this.router.navigateByUrl('/login');
         },
         error: error => {
           console.log(error);
           this.erroraddUser = error.error.details;
         }
-      });
+      }); */
+      console.log(JSON.stringify(this.form.value));
+      console.log(" PASSED")
+    }   
   }
+  
   onReset(): void {
     this.submitted = false;
     this.form.reset();

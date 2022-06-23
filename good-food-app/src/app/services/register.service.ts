@@ -12,9 +12,8 @@ export class RegisterService {
 
   createCustomer(customer: Customer)
   {
-    const body=JSON.stringify(customer);
+    const body = JSON.stringify(customer);
     const headers = { 'content-type': 'application/json'}
     return this.httpClient.post<any>(environment.apiUrl + '/customers/register', body,{'headers':headers} );
-
   }
 }

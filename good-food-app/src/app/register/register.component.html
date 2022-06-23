@@ -21,12 +21,6 @@
                 [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }" />
               <div *ngIf="submitted && f['firstname'].errors" class="invalid-feedback">
                 <div *ngIf="f['firstname'].errors['required']">Prénom requis</div>
-                <div *ngIf="f['firstname'].errors['minlength']">
-                  Prénom doit comporter au moins 2 caractère
-                </div>
-                <div *ngIf="f['firstname'].errors['maxlength']">
-                  Username must not exceed 20 characters
-                </div>
               </div>
             </div>
             <div class="form-group pt-3">
@@ -39,17 +33,19 @@
               </div>
             </div>
             <div class="form-group pt-3">
+              <label>Pays</label>
+              <input type="country" formControlName="country" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['country'].errors }" />
+              <div *ngIf="submitted && f['country'].errors" class="invalid-feedback">
+                <div *ngIf="f['country'].errors['required']">Nom du pays requis</div>
+              </div>
+            </div>
+            <div class="form-group pt-3">
               <label>Ville</label>
               <input type="city" formControlName="city" class="form-control"
                 [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" />
               <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
                 <div *ngIf="f['city'].errors['required']">Nom de la ville requis</div>
-                <div *ngIf="f['city'].errors['minlength']">
-                  Password must be at least 6 characters
-                </div>
-                <div *ngIf="f['city'].errors['maxlength']">
-                  Username must not exceed 40 characters
-                </div>
               </div>
             </div>
             <div class="form-group pt-3">
@@ -63,8 +59,7 @@
               </div>
             </div>
           </div>
-  <div class="col-sm  pt-3">
-            <div class="form-group">
+            <div class="form-group pt-3">
               <label>Adresse</label>
               <input type="text" formControlName="addressline1" class="form-control"
                 [ngClass]="{ 'is-invalid': submitted && f['addressline1'].errors }" />
@@ -78,12 +73,6 @@
                 [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }" />
               <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
                 <div *ngIf="f['phone'].errors['required']">Numéro de téléphone requis requis</div>
-                <div *ngIf="f['phone'].errors['minlength']">
-                  Username must be at least 6 characters
-                </div>
-                <div *ngIf="f['phone'].errors['maxlength']">
-                  Username must not exceed 20 characters
-                </div>
               </div>
             </div>
             <div class="form-group pt-3">
@@ -107,23 +96,15 @@
             </div>
             <div class="form-group pt-3">
               <label>Confirmation mot de passe</label>
-              <input type="password" formControlName="confirmPassword" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }" />
-              <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
-                <div *ngIf="f['confirmPassword'].errors['required']">
+              <input type="password" formControlName="cpassword" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['cpassword'].errors }" />
+              <div *ngIf="submitted && f['cpassword'].errors" class="invalid-feedback">
+                <div *ngIf="f['cpassword'].errors['required']">
                   Confirmation mot de passe requis
                 </div>
-                <div *ngIf="f['confirmPassword'].errors['match']">
+                <div *ngIf="f['cpassword'].errors['match']">
                   Le mot de passe de corfimation est différent de votre mot de passe
                 </div>
-              </div>
-            </div>
-            <div class="form-group form-check pt-3">
-              <input type="checkbox" formControlName="acceptTerms" class="form-check-input"
-                [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }" />
-              <label for="acceptTerms" class="form-check-label">J'ai lu et j'accepte les termes</label>
-              <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">
-                Accepte les termes requis
               </div>
             </div>
             <div class="form-group pt-3">
@@ -132,7 +113,6 @@
                 Réinitialiser
               </button>
             </div>
-      </div>
     </form>
   </div>
 </div>
