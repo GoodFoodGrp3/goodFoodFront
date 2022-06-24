@@ -19,13 +19,21 @@ export class MenusComponent implements OnInit {
     //this.getProducts()
   }
 
-    getProducts() {
-      this.productService.getProducts().subscribe(
-        data => {
-          console.log(data + "Données des productions")
-          this.products = data;
-        }
-      )
+  getProducts() {
+    this.productService.getProducts().subscribe(
+      data => {
+        console.log(data + "Données des productions")
+        this.products = data;
+      }
+    )
+  }
+
+  addCart() {
+    if (sessionStorage.getItem('cartnumber') == null) {
+      var cartnumber = 0,
+        sessionStorage.setItem("cartnumber", "1")
+    }
+    sessionStorage.setItem('')
   }
 
 }
