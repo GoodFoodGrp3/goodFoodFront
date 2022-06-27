@@ -30,10 +30,10 @@ export class MenusComponent implements OnInit {
 
   addCart() {
     if (sessionStorage.getItem('cartnumber') == null) {
-      var cartnumber = 0,
-        sessionStorage.setItem("cartnumber", "1")
+      var cartnumber = 0;
+      //       sessionStorage.setItem("cartnumber", "1")
     }
-    sessionStorage.setItem('')
+    //    sessionStorage.setItem('')
   }
 
 }

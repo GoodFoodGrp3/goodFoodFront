@@ -33,3 +33,7 @@ a { color: inherit;
   color: #6ccbcb;
   margin: 20;
 }
+
+.space {
+  height: 15px;
+}
