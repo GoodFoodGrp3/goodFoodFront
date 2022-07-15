@@ -9,7 +9,8 @@
             <div class="card-body">
               <h5 class="card-title">{{product.categories.category_name}}</h5>
               <p class="card-text">{{product.categories.text_description}}</p>
-              <a href="#" class="btn btn-warning" routerLink="/article-component">Voir</a>
+              <!-- <a href="#" class="btn btn-warning" routerLink="/article-component">Voir</a> -->
+              <button class="btn btn-primary" (click)="addToCart(product)">Ajouter au panier</button>
             </div>
           </div>
     </div>

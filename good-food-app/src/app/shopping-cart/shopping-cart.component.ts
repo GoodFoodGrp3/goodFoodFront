@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -9,9 +10,16 @@ import { Router } from '@angular/router';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor(private router: Router, public dialog: MatDialog) { }
+  public productsCart: any = [];
+  public total !: number;
+
+  constructor(private router: Router, public dialog: MatDialog, private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.cartService.getProducts().subscribe(res => {
+      this.productsCart = res;
+      this.total = this.cartService.getTotalPrice();
+    })
   }
 
   goToValidation() {
@@ -21,12 +29,21 @@ export class ShoppingCartComponent implements OnInit {
       this.dialog.open(DialogDataExampleDialog, {});
     }
   }
+
+  removeItem(item: any) {
+    this.cartService.removeCartItem(item);
+  }
+
+  emptyCart() {
+    this.cartService.removeAllCart();
+  }
+
+  /* getCartProduct() {
+   this.productsCart =  this.cartService.getProducts()
+   console.log(this.productsCart)
+  } */
 }
 
-/* @Component({
-  selector: 'dialog-data-example-dialog',
-  templateUrl: 'dialog-data-example-dialog.html',
-}) */
 export class DialogDataExampleDialog {
   constructor(@Inject(MAT_DIALOG_DATA) public title: "Veuillez vous connecter!") { }
 }

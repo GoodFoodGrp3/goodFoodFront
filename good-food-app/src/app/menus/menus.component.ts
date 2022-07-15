@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Categories } from '../models/categories';
 import { Products } from '../models/products';
+import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -12,11 +13,15 @@ export class MenusComponent implements OnInit {
 
   products!: Products[]
   categories!: Categories[]
+  cartProductList = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    //this.getProducts()
+    this.getProducts()
+    this.products.forEach((a: any) => {
+      Object.assign(a,{quantity: 1, total: a.buy_price})
+    })
   }
 
   getProducts() {
@@ -28,12 +33,7 @@ export class MenusComponent implements OnInit {
     )
   }
 
-  addCart() {
-    if (sessionStorage.getItem('cartnumber') == null) {
-      var cartnumber = 0;
-      //       sessionStorage.setItem("cartnumber", "1")
-    }
-    //    sessionStorage.setItem('')
+  addToCart(product: any) {
+    this.cartService.addToCart(product)
   }
-
 }

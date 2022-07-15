@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -10,13 +11,20 @@ export class NavigationBarComponent implements OnInit {
   urlLogin = 'login-component'
   urlProfile = 'profile-component'
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private cartService: CartService) { }
 
+  public totalItem: number = 0;
   navbarCollapsed = true;
   detectUser = sessionStorage.getItem('token')
   dataset = ['Hamburger', 'GoodFood', 'bacon'];
 
   ngOnInit(): void {
+    this.cartService.getProducts().subscribe(
+      res => {
+        this.totalItem = res.length;
+
+      }
+    )
 
    }
 
