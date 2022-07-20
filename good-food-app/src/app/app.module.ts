@@ -30,6 +30,8 @@ import { RegisterService } from './services/register.service';
 import { MainHomeComponent } from './main-home/main-home.component';
 import { StripeModule } from 'stripe-angular';
 import { PaymentComponent } from './payment/payment.component';
+import { SearchArticlesPipe } from './tools/search-articles.pipe';
+
 
 
 
@@ -51,6 +53,7 @@ import { PaymentComponent } from './payment/payment.component';
     CommandComponent,
     MainHomeComponent,
     PaymentComponent,
+    SearchArticlesPipe,
   ],
   imports: [
     MatDialogModule,

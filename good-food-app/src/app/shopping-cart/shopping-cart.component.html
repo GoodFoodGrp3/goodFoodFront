@@ -1,5 +1,4 @@
 <div class="my-component">
-  <h1>Votre panier :</h1>
 <ng-container *ngIf="productsCart.length !=0">
   <div class="container">
       <div class="card-table">
@@ -20,8 +19,8 @@
                         <td>{{i+1}}</td>
                         <td>{{item.categories.category_name}}</td>
                         <td><img style="width: 120px;" src="{{item.categories.image}}" alt=""></td>
-                          <td style="width: 25%;">{{item.description}}</td>
-                          <th style="width: 12%;">{{item.price}}</th>
+                          <td style="width: 25%;">{{item.categories.description}}</td>
+                          <th style="width: 12%;">{{item.categories.price}}</th>
                           <td>
                               <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Retirer</button>
                           </td>
@@ -29,9 +28,9 @@
                       <tr>
                           <td colspan="4"></td>
                           <td><button (click)="emptyCart()" class="btn btn-danger">Vider panier</button></td>
-                          <td><button routerLink="/menu" class="btn btn-primary">Shop More</button></td>
-                          <td><button class="btn btn-success">Checkout</button></td>
-                          <td><strong>Total prix : ${{total}}</strong></td>
+                          <td><button routerLink="/menu" class="btn btn-primary">Ajouter un article</button></td>
+                          <td><button class="btn btn-success">Payer</button></td>
+                          <td><strong>Total prix : {{total}}€</strong></td>
                       </tr>
                   </tbody>
               </table>

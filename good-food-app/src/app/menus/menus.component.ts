@@ -14,6 +14,8 @@ export class MenusComponent implements OnInit {
   products!: Products[]
   categories!: Categories[]
   cartProductList = [];
+  public filterCategory : any
+  searchKey:string ="";
 
   constructor(private productService: ProductService, private cartService: CartService) { }
 
@@ -29,11 +31,21 @@ export class MenusComponent implements OnInit {
       data => {
         console.log(data + "Données des productions")
         this.products = data;
+        this.filterCategory = data;
       }
     )
   }
 
   addToCart(product: any) {
     this.cartService.addToCart(product)
+  }
+
+  filter(category:string){
+    this.filterCategory = this.products
+    .filter((a:any)=>{
+      if(a.categories.category_name == category || category==''){
+        return a;
+      }
+    })
   }
 }
