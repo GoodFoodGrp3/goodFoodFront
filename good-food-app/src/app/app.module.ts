@@ -31,6 +31,11 @@ import { MainHomeComponent } from './main-home/main-home.component';
 import { StripeModule } from 'stripe-angular';
 import { PaymentComponent } from './payment/payment.component';
 import { SearchArticlesPipe } from './tools/search-articles.pipe';
+import { FilterPipe } from './tools/filter.pipe';
+import { CommentsComponent } from './comments/comments.component';
+import { CommentModalComponent } from './modals/comment-modal/comment-modal.component';
+import { CommentDeleteComponent } from './modals/comment-delete/comment-delete.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -54,6 +59,10 @@ import { SearchArticlesPipe } from './tools/search-articles.pipe';
     MainHomeComponent,
     PaymentComponent,
     SearchArticlesPipe,
+    FilterPipe,
+    CommentsComponent,
+    CommentModalComponent,
+    CommentDeleteComponent,
   ],
   imports: [
     MatDialogModule,
@@ -62,6 +71,7 @@ import { SearchArticlesPipe } from './tools/search-articles.pipe';
     MatDatepickerModule,
     MatFormFieldModule,
     FormsModule,
+    NgbModule,
     HttpClientModule,
     MatInputModule,
     AppRoutingModule,

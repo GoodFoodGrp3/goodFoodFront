@@ -22,6 +22,9 @@
           <a routerLink="/profile" class="nav-link">Profil</a>
         </li>
         <li *ngIf="detectUser != null" class="nav-item">
+          <a routerLink="/comments" class="nav-link">Commentaires</a>
+        </li>
+        <li *ngIf="detectUser != null" class="nav-item">
           <a routerLink="" (click)="deconnect()" class="nav-link">Se déconnecter</a>
         </li>
       </ul>
