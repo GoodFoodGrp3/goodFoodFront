@@ -19,8 +19,10 @@ export class AuthGuardService implements CanActivate {
   }
 
   restaurantChoose() {
-
+    if (localStorage.getItem('keyOffice') != null) {
+      return true 
+    }
+    this.router.navigateByUrl('/main-home');
+    return false;
   }
-
-
 }

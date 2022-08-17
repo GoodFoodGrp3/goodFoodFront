@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import {MatDatepicker} from '@angular/material/datepicker';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import * as _moment from 'moment';
@@ -26,17 +26,17 @@ export const MY_FORMATS = {
 
 export class AddCardComponent implements OnInit {
 
-  expirationDate = new FormControl(moment());
+  expirationDate = new UntypedFormControl(moment());
 
-  form: FormGroup = new FormGroup({
-    numCard: new FormControl(''),
-    userCard: new FormControl(''),
+  form: UntypedFormGroup = new UntypedFormGroup({
+    numCard: new UntypedFormControl(''),
+    userCard: new UntypedFormControl(''),
     expirationDate: this.expirationDate,
-    securityCode: new FormControl(''),
-    city: new FormControl(false),
+    securityCode: new UntypedFormControl(''),
+    city: new UntypedFormControl(false),
   });
   submitted = false;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: UntypedFormBuilder) { }
   ngOnInit(): void {
     this.form = this.formBuilder.group(
       {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../services/cart.service';
 import { PaymentService } from '../services/payment.service';
 
 @Component({
@@ -9,16 +10,19 @@ import { PaymentService } from '../services/payment.service';
 export class PaymentComponent implements OnInit {
 
   adresse = sessionStorage.getItem('adresse');
-
+  public productsCart: any = [];
   paymentHandler: any = null;
-
   success: boolean = false
-
   failure: boolean = false
+  public total !: number;
 
-  constructor(private checkout: PaymentService) { }
+  constructor(private checkout: PaymentService, private cartService: CartService) { }
 
   ngOnInit() {
+    this.cartService.getProducts().subscribe(res => {
+      this.productsCart = res;
+      this.total = this.cartService.getTotalPrice();
+    })
     console.log("Adresse de l'user  " + this.adresse)
     this.invokeStripe();
   }

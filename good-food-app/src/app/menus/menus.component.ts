@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Categories } from '../models/categories';
 import { Products } from '../models/products';
 import { CartService } from '../services/cart.service';
+import { CategoriesService } from '../services/categories.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -17,10 +19,11 @@ export class MenusComponent implements OnInit {
   public filterCategory : any
   searchKey:string ="";
 
-  constructor(private productService: ProductService, private cartService: CartService) { }
+  constructor(private productService: ProductService, private cartService: CartService, private categoriesService: CategoriesService, private router: Router,) { }
 
   ngOnInit(): void {
     this.getProducts()
+    this.getCategories()
     this.products.forEach((a: any) => {
       Object.assign(a,{quantity: 1, total: a.buy_price})
     })
@@ -31,19 +34,33 @@ export class MenusComponent implements OnInit {
       data => {
         console.log(data + "Données des productions")
         this.products = data;
-        this.filterCategory = data;
+      }
+    )
+  }
+
+  getCategories() {
+    this.categoriesService.getCategories().subscribe(
+      data => {
+        console.log(data + "Données des Categories")
+        this.categories = data;
+        this.filterCategory = this.categories;
       }
     )
   }
 
   addToCart(product: any) {
-    this.cartService.addToCart(product)
+    if (sessionStorage.getItem('token') != null && sessionStorage.getItem('token')!.length > 1) {
+      this.cartService.addToCart(product)
+    } else {
+      this.router.navigateByUrl('/login');
+    }
   }
 
   filter(category:string){
-    this.filterCategory = this.products
+    this.filterCategory
     .filter((a:any)=>{
-      if(a.categories.category_name == category || category==''){
+      if(a.category_name == category || category==''){
+        console.log(a)
         return a;
       }
     })

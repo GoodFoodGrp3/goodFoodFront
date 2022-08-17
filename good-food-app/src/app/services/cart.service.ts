@@ -14,6 +14,7 @@ export class CartService {
 
   getProducts() {
     return this.productList.asObservable();
+    console.log(this.productList)
   }
 
   setProduct(product : any) {
@@ -37,11 +38,10 @@ export class CartService {
   }
 
   removeCartItem(product: any) {
-    this.cartItemList.map((a:any, index:any) => {
-      if (product.id=== a.id) {
-        this.cartItemList.splice(index,1);
-      }
-    })
+    const index = this.cartItemList.indexOf(product)
+    if (index > -1) { // only splice array when item is found
+      this.cartItemList.splice(index, 1); // 2nd parameter means remove one item only
+    }
     this.productList.next(this.cartItemList);
   }
 

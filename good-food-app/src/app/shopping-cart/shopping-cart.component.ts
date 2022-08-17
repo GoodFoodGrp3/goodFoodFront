@@ -23,11 +23,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   goToValidation() {
-    if (sessionStorage.getItem('token') != null && sessionStorage.getItem('token')!.length > 1) {
       this.router.navigateByUrl('/payment');
-    } else {
-      this.dialog.open(DialogDataExampleDialog, {});
-    }
   }
 
   removeItem(item: any) {

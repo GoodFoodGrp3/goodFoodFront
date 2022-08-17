@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-address',
@@ -8,15 +8,15 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 })
 export class AddAddressComponent implements OnInit {
 
-  form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    number: new FormControl(''),
-    adress: new FormControl(''),
-    postalCode: new FormControl(''),
-    city: new FormControl(false),
+  form: UntypedFormGroup = new UntypedFormGroup({
+    username: new UntypedFormControl(''),
+    number: new UntypedFormControl(''),
+    adress: new UntypedFormControl(''),
+    postalCode: new UntypedFormControl(''),
+    city: new UntypedFormControl(false),
   });
   submitted = false;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: UntypedFormBuilder) { }
   ngOnInit(): void {
     this.form = this.formBuilder.group(
       {

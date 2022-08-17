@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from '../services/register.service';
 import Validation from '../utils/validation';
@@ -11,18 +11,18 @@ import Validation from '../utils/validation';
 })
 export class RegisterComponent implements OnInit {
 
-  form: FormGroup = new FormGroup({
-    lastname: new FormControl(''),
-    firstname: new FormControl(''),
-    email: new FormControl(''),
-    country: new FormControl(''),
-    city: new FormControl(''),
-    postalCode: new FormControl(''),
-    addressline1: new FormControl(''),
-    phone: new FormControl(''),
-    username: new FormControl(''),
-    password: new FormControl(''),
-    cpassword: new FormControl(''),
+  form: UntypedFormGroup = new UntypedFormGroup({
+    lastname: new UntypedFormControl(''),
+    firstname: new UntypedFormControl(''),
+    email: new UntypedFormControl(''),
+    country: new UntypedFormControl(''),
+    city: new UntypedFormControl(''),
+    postalCode: new UntypedFormControl(''),
+    addressline1: new UntypedFormControl(''),
+    phone: new UntypedFormControl(''),
+    username: new UntypedFormControl(''),
+    password: new UntypedFormControl(''),
+    cpassword: new UntypedFormControl(''),
   });
 
   notGoodPassword = false;
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
   erroraddUser : any;
   invalid = [];
   
-  constructor(private formBuilder: FormBuilder, private registerService: RegisterService,  private router: Router) {}
+  constructor(private formBuilder: UntypedFormBuilder, private registerService: RegisterService,  private router: Router) {}
 
   ngOnInit(): void {
     this.initForm()

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, MaxLengthValidator, Validators } from '@angular/forms';
 import { User } from '../models/user';
-import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
 import { LoginService } from '../services/login-service';
 
 
@@ -12,20 +11,20 @@ import { LoginService } from '../services/login-service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
+  form: UntypedFormGroup = new UntypedFormGroup({
+    username: new UntypedFormControl(''),
+    email: new UntypedFormControl(''),
+    password: new UntypedFormControl(''),
   });
   loading = false;
   submitted = false;
   returnUrl?: string;
   errorLogin: any;
-  connexionForm!: FormGroup;
+  connexionForm!: UntypedFormGroup;
   errorConnection= false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private loginService: LoginService

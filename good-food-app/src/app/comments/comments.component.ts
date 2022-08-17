@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CommentModalComponent } from '../modals/comment-modal/comment-modal.component';
 import { Comments } from '../models/comments';
@@ -22,7 +22,7 @@ export class CommentsComponent implements OnInit {
 
   constructor( private commentsService:CommentsService,
               private commentService: CommentsService, 
-              private formBuilder: FormBuilder,
+              private formBuilder: UntypedFormBuilder,
               private modalService: NgbModal ) { }
 
   ngOnInit(): void {

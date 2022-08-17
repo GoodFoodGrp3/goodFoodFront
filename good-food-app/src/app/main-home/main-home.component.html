@@ -1,27 +1,40 @@
 <body>
-    <div class="my-component pt-5">
-    <div class="container">  
-        <div class="centered">
-            <div class="card mainCard img-fluid">
-              <img class="card-img-top" src="assets/background-main.jpg" alt="Card image" style="width:100%; height:100%">
-              <div class="card-img-overlay">
-                <div class="card-body">
-                    <h2>Choisissez un restaurant  :</h2>
-                      <div class="card col-sm subCard">
-                        <a href="#" class="stretched-link">L'ouzbeck de l'ouest</a>
-                      </div>
-                      <div class="space"></div>
-                      <div class="card col-sm subCard pt-5">
-                        <a href="#" class="stretched-link">Le smaliara</a>
-                      </div>
-                      <div class="space"></div>
-                      <div class="card col-sm subCard pt-5">
-                        <a href="#" class="stretched-link">The great hunger</a>
-                      </div>
+    <div class="my-component pt-3">
+      <h1>Choisissez un restaurant : </h1>
+          <div class="container-fluid pt-3"> 
+            <ngb-carousel>
+              <ng-template ngbSlide *ngFor="let image of images">
+                <div class="wrapper">
+                  <img [src]="image.src" alt="Random first slide" (click)="selectOffice()">
                 </div>
-              </div>
-            </div>
-        </div>
-    </div>
+                <div class="carousel-caption">
+                  <h3>{{ image.title }}</h3>
+                  <p>{{ image.short }}</p>
+                </div>
+              </ng-template>
+            </ngb-carousel>   
+          </div>
 </div>
 </body>
+
+
+<!-- 
+<div class="card mainCard img-fluid">
+  <img class="card-img-top" src="assets/background-main.jpg" alt="Card image" style="width:100%; height:100%">
+  <div class="card-img-overlay">
+    <div class="card-body">
+        <h2>Choisissez un restaurant  :</h2>
+          <div class="card col-sm subCard">
+            <a href="#" class="stretched-link">L'ouzbeck de l'ouest</a>
+          </div>
+          <div class="space"></div>
+          <div class="card col-sm subCard pt-5">
+            <a href="#" class="stretched-link">Le smaliara</a>
+          </div>
+          <div class="space"></div>
+          <div class="card col-sm subCard pt-5">S
+            <a href="#" class="stretched-link">The great hunger</a>
+          </div>
+    </div>
+  </div>
+</div> -->

@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from "@angular/forms";
 import { Comments } from 'src/app/models/comments';
 import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
@@ -8,12 +8,12 @@ import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bo
 @Component({
   selector: 'app-comment-modal',
   templateUrl: './comment-modal.component.html',
-  styleUrls: ['./comment-modal.component.scss'],
+  styleUrls: ['./comment-modal.component.css'],
 })
 export class CommentModalComponent implements OnInit {
 
-  textareaForm = new FormGroup({
-    content: new FormControl('', [Validators.required])
+  textareaForm = new UntypedFormGroup({
+    content: new UntypedFormControl('', [Validators.required])
   });
 
   @Input() public comments!: Comments[];

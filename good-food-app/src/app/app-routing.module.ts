@@ -18,7 +18,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { CommentsComponent } from './comments/comments.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent},
   { path: 'main-home', component: MainHomeComponent },
   { path: 'menu', component: MenusComponent },
   { path: 'command', component: CommandComponent },
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'validation', component: ValidationComponent, canActivate: [AuthGuard] },
   { path: 'add-address', component: AddAddressComponent, canActivate: [AuthGuard] },
   { path: 'add-card', component: AddCardComponent, canActivate: [AuthGuard] },
-  { path: 'comments', component: CommentsComponent, canActivate: [AuthGuard] },
+  { path: 'comments', component: CommentsComponent, /* canActivate: [AuthGuard] */ },
   { path: 'payment', component: PaymentComponent/* , canActivate: [AuthGuard] */ },
   //{ path: 'article-component/:id', component: ArticleComponent },
   { path: 'article-component', component: ArticleComponent },
