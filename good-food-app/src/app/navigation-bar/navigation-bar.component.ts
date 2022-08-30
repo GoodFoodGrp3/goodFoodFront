@@ -22,10 +22,8 @@ export class NavigationBarComponent implements OnInit {
     this.cartService.getProducts().subscribe(
       res => {
         this.totalItem = res.length;
-
       }
     )
-
    }
 
   goToProfile() {

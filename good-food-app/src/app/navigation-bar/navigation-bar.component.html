@@ -27,13 +27,14 @@
         <li *ngIf="detectUser != null" class="nav-item">
           <a routerLink="" (click)="deconnect()" class="nav-link">Se déconnecter</a>
         </li>
+        <li>
+          <img class="nav-item pr-3" routerLink="/shopping-cart" routerLinkActive="active" src="assets/icons8-caddie-48.png">
+          <span class='badge badge-warning' id='lblCartCount'>{{totalItem}}</span>
+        </li>
+        <li>
+          <span class='badge badge-warning' id='lblCartCount'>{{totalItem}}</span>
+        </li>
       </ul>
-      <img class="nav-item pr-3" routerLink="/shopping-cart" routerLinkActive="active" src="assets/icons8-caddie-48.png">
-      <span class='badge badge-warning' id='lblCartCount'>{{totalItem}}</span>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
   </nav>
   <router-outlet></router-outlet>

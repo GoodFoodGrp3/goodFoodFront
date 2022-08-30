@@ -11,8 +11,8 @@
  #backgroundImage {
     right: 0;
     bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
+    background-position: center center;
+    background-size: cover;
     opacity: 1.5;
     position: relative;
   }
@@ -43,4 +43,8 @@
 /* Suppression point liste*/
 ul {
   list-style-type: none;
+}
+
+body {
+  background-image: url("assets/home-background-image.jpg");
 }

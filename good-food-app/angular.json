@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "good-food"
+  "defaultProject": "good-food",
+  "cli": {
+    "analytics": false
+  }
 }
