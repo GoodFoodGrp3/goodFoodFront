@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './services/auth-guard-service';
 import { AddAddressComponent } from './add-address/add-address.component';
-import { AddCardComponent } from './add-card/add-card.component';
 import { ArticleComponent } from './article/article.component';
 import { CommandComponent } from './command/command.component';
 import { HomeComponent } from './home/home.component';
@@ -28,7 +27,6 @@ const routes: Routes = [
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'validation', component: ValidationComponent, canActivate: [AuthGuard] },
   { path: 'add-address', component: AddAddressComponent, canActivate: [AuthGuard] },
-  { path: 'add-card', component: AddCardComponent, canActivate: [AuthGuard] },
   { path: 'comments', component: CommentsComponent, /* canActivate: [AuthGuard] */ },
   { path: 'payment', component: PaymentComponent/* , canActivate: [AuthGuard] */ },
   //{ path: 'article-component/:id', component: ArticleComponent },

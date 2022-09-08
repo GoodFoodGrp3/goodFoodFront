@@ -27,14 +27,9 @@
         <li *ngIf="detectUser != null" class="nav-item">
           <a routerLink="" (click)="deconnect()" class="nav-link">Se déconnecter</a>
         </li>
-        <li>
-          <img class="nav-item pr-3" routerLink="/shopping-cart" routerLinkActive="active" src="assets/icons8-caddie-48.png">
-          <span class='badge badge-warning' id='lblCartCount'>{{totalItem}}</span>
-        </li>
-        <li>
-          <span class='badge badge-warning' id='lblCartCount'>{{totalItem}}</span>
-        </li>
       </ul>
+        <img class="nav-item pr-3" routerLink="/shopping-cart" routerLinkActive="active" src="assets/icons8-caddie-48.png">
+        <span class='badge badge-warning' id='lblCartCount'>{{totalItem}}</span>
     </div>
   </nav>
   <router-outlet></router-outlet>

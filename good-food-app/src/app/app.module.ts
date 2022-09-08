@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -35,10 +34,6 @@ import { CommentsComponent } from './comments/comments.component';
 import { CommentModalComponent } from './modals/comment-modal/comment-modal.component';
 import { CommentDeleteComponent } from './modals/comment-delete/comment-delete.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
-
-
 
 @NgModule({
   declarations: [
