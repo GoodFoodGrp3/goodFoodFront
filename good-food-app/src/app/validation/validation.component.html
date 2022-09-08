@@ -1,0 +1,25 @@
+<div class="my-component">
+    <div class="container pt-5">
+                <h1 class="pb-5">Vérification et validation de votre commande :</h1>          
+        <div class="row pb-5">
+            <div class="col-sm">
+                <b> Adresse de livraison : {{adresse}}</b>
+            </div>
+            <div class="col-sm"><button type="button" class="btn btn-secondary" routerLink="/add-address">Modifier</button></div>
+        </div>
+        <div class="row pb-5">
+            <div class="col-sm">
+                <b>Mode de paiement : </b>
+            </div>
+            <div class="col-sm"><button type="button" class="btn btn-secondary" routerLink="/add-card">Ajouter</button></div>
+        </div>
+        <p><b>Total :</b> 50e</p>
+        <p><b>Date de livraison :</b> 30 décembre</p>
+        <p><b>Récapitulatif de la commande :</b></p>
+        <ul>
+            <li>Hamburger x2</li>
+            <li>Chicken wings x20</li>
+        </ul>
+    </div>
+    <div class="row"><button type="button" class="btn btn-warning">Valider</button></div>
+</div>

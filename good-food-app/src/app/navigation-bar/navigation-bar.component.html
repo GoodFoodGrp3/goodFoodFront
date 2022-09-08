@@ -1,0 +1,36 @@
+<body>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <img  routerLink="/home" routerLinkActive="active" src="assets/goodfood-market--600.png">
+    <button (click)="toggleNavbarCollapse()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngClass]="{ collapse: navbarCollapsed }" class="navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Acceuil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/menu" routerLinkActive="active">La carte</a>
+        </li>
+        <li *ngIf="detectUser != null" class="nav-item">
+          <a class="nav-link" routerLink="/command" routerLinkActive="active">Commandes</a>
+        </li>
+        <li *ngIf="detectUser == null" class="nav-item">
+          <a routerLink="/login" class="nav-link">Se connecter</a>
+        </li>
+        <li *ngIf="detectUser != null" class="nav-item">
+          <a routerLink="/profile" class="nav-link">Profil</a>
+        </li>
+        <li *ngIf="detectUser != null" class="nav-item">
+          <a routerLink="/comments" class="nav-link">Commentaires</a>
+        </li>
+        <li *ngIf="detectUser != null" class="nav-item">
+          <a routerLink="" (click)="deconnect()" class="nav-link">Se déconnecter</a>
+        </li>
+      </ul>
+        <img class="nav-item pr-3" routerLink="/shopping-cart" routerLinkActive="active" src="assets/icons8-caddie-48.png">
+        <span class='badge badge-warning' id='lblCartCount'>{{totalItem}}</span>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</body>

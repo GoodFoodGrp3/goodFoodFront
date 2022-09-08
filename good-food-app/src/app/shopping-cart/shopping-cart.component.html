@@ -1,0 +1,54 @@
+<div class="my-component">
+<ng-container *ngIf="productsCart.length !=0">
+  <div class="container pt-3">
+      <div class="card-table">
+          <div class="cart-product">
+              <table class="table table-responsive">
+                  <thead>
+                      <tr>
+                          <th>Numéro</th>
+                          <th>Nom article</th>
+                          <th>Image article</th>
+                          <th>Description article</th>
+                          <th>Prix article</th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of productsCart; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.product_name}}</td>
+                        <td><img style="width: 120px;" src="{{item.categories.image}}" alt=""></td>
+                          <td style="width: 25%;">{{item.product_description}}</td>
+                          <th style="width: 12%;">{{item.categories.price}}</th>
+                          <td>
+                              <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Retirer</button>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td colspan="4"></td>
+                          <td><button (click)="emptyCart()" class="btn btn-danger">Vider panier</button></td>
+                          <td><button routerLink="/menu" class="btn btn-primary">Ajouter un article</button></td>
+                          <td><button (click)="goToValidation()" class="btn btn-success">Payer</button></td>
+                          <td><strong>Total prix : {{total}}€</strong></td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</ng-container>
+
+
+<ng-container *ngIf="productsCart.length ==0">
+  <div class="container">
+      <div class="card">
+      <div class="center">
+          <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+          <h4>Votre panier est vide!</h4>
+          <h6>Ajoutez des articles à votre panier!</h6>
+          <button routerLink="/menu" class="btn btn-primary">Voir le menu</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

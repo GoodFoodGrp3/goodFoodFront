@@ -1,0 +1,16 @@
+.img-article {
+  width: 50%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  text-align: center;
+}
+
+.img-back {
+    display: block;
+    max-width: 3%;
+    height: auto;
+}

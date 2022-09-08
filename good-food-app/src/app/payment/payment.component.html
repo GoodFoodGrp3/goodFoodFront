@@ -1,0 +1,63 @@
+<div class="my-component">
+  <div class="container pt-3">
+    <h1 class="pb-5">Vérification et validation de votre commande :</h1>
+    <div class="card">
+      <div class="card-body pt-3">
+        <div class="row">
+          <div class="card">
+            <div class="card-body">
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Téléphone</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="text" class="form-control" value="0652545858">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Addresse</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="text" class="form-control" value="{{adresse}}">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="button" class="btn btn-primary px-4" value="Modifier">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"></div>
+                <p><b>Récapitulatif de la commande :</b></p>
+                <ul *ngFor="let item of productsCart; let i = index">
+                  <li>{{item.product_name}}</li>
+                </ul>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"></div>
+                <p><b>Prix total : {{total}}€</b></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="row"><button (click)="makePayment(total)" type="button" class="btn btn-warning">Payer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="success">
+    <h1>Votre paiement est effectué</h1>
+  </div>
+
+  <div *ngIf="failure">
+    <h1>Votre paiement a échoué</h1>
+  </div>
+</div>

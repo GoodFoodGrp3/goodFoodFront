@@ -1,0 +1,57 @@
+<body>
+<div class="my-component">
+ <!--  <div class="card-top container-fluid">
+    <div class="container d-flex">
+      <div style="border-radius: 18px;" class="card">   
+        <div class="item">
+            <a (click)="filter('')">
+                <h6>Tous</h6>
+            </a>
+        </div>
+      </div>
+          <div *ngFor = "let category of categories">
+            <div style="border-radius: 18px;" class="card">    
+            <div class="item">
+                <a (click)="filter('{{category.category_name}}')">
+                    <h6>{{category.category_name}}</h6>
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container pt-5">
+  <h1 class="title-top text-center">La carte !</h1>
+  <div class="row pt-3">
+      <div class="col" *ngFor = "let product of products">
+        <div class="card align-items-center d-flex justify-content-center" style="width: 18rem; height: auto;">
+            <img class="card-img-top justify-content-center" src="{{product.categories.image}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{product.product_name}}</h5>
+              <p class="card-text">{{product.product_description}}</p>
+              <p><strong>Prix:</strong> {{product.buy_price}}€</p>
+              <!-- <a href="#" class="btn btn-warning" routerLink="/article-component">Voir</a> -->
+              <button class="btn btn-primary" (click)="addToCart(product)">Ajouter au panier</button>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+
+<!-- <div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.title}}</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+                <p><strong>Price:</strong> ${{item.price}}</p>
+                
+            </div>
+        </ng-container>
+
+    </div>
+</div> -->
