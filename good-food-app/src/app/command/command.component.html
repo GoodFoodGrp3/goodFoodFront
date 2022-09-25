@@ -1,48 +1,33 @@
 <div class="my-component">
+  <ng-container *ngIf="commands.length !=0">
     <div class="container pt-3">
-        <h1 class="title-top text-center pb-2">Vos commandes</h1>
-    <div class="card pb-5">
-        <h5 class="card-header">Commandes en cours</h5>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h1 class="title-top text-center pb-2">Vos commandes</h1>
+      <div class="pt-3" *ngFor="let command of commands; let index = index">
+        <div class="card pb-5">
+          <h5 class="card-header">Commandes n°{{index+1}}</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <p><b>Informations de la commande :</b></p>
+              <ul *ngFor="let item of command; let i = index">
+                <li><b>Nom de l'article :</b> {{item.product_name}}</li>
+                <li><b>Prix de l'article :</b> {{item.buy_price}} €</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="pb-5"></div>
-      <div class="card">
-        <h5 class="card-header">Commandes antérieurs</h5>
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Numéro commande</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prix</th>
-                <th scope="col">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Cheeseburger</td>
-                <td>12,90</td>
-                <td>10/11/1993</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>BlackBurger</td>
-                <td>15</td>
-                <td>07/02/2020</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Queen Burger</td>
-                <td>20</td>
-                <td>03/02/1995</td>
-              </tr>
-            </tbody>
-          </table>
-          
+      <div class="row pt-1">
+        <div class="col-sm-3"></div>
+        <p class="text-center"><b>Prix total des commandes : {{total}} €</b></p>
       </div>
     </div>
+  </ng-container>
+  <ng-container *ngIf="commands.length ==0">
+    <div class="container pt-3">
+      <div class="text-center">
+        <h1>Vous n'avez pas de commandes!</h1>
+      </div>
+    </div>
+  </ng-container>
 </div>

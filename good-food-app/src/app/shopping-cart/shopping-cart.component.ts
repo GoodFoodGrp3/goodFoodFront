@@ -33,11 +33,6 @@ export class ShoppingCartComponent implements OnInit {
   emptyCart() {
     this.cartService.removeAllCart();
   }
-
-  /* getCartProduct() {
-   this.productsCart =  this.cartService.getProducts()
-   console.log(this.productsCart)
-  } */
 }
 
 export class DialogDataExampleDialog {

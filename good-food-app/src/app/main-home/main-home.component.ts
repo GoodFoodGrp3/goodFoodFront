@@ -13,9 +13,9 @@ export class MainHomeComponent implements OnInit {
   title = 'ng-carousel-demo';
   
   images = [
-    {title: "L'ouzbeck de l'ouest", short: 'Restaurent Ouzbekistonais', src: "https://picsum.photos/id/700/900/500"},
-    {title: 'Le smaliara', short: 'Restaurant chinois', src: "https://picsum.photos/id/1011/900/500"},
-    {title: 'The great hunger', short: 'Restauration anglaise', src: "https://picsum.photos/id/984/900/500"}
+    {title: "L'ouzbeck de l'ouest", short: 'Restaurent Ouzbekistonais', src: "assets/carroussel1.jpg"},
+    {title: 'Le smaliara', short: 'Restaurant chinois', src: "assets/carroussel2.jpg"},
+    {title: 'The great hunger', short: 'Restauration anglaise', src: "assets/carroussel3.jpg"}
   ];
     listOffices!: Office[];
     isSelectedOffice = false;
