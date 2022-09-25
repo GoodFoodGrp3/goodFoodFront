@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
+import { OrderService } from '../services/order.service';
 import { PaymentService } from '../services/payment.service';
 
 @Component({
@@ -16,7 +18,7 @@ export class PaymentComponent implements OnInit {
   failure: boolean = false
   public total !: number;
 
-  constructor(private checkout: PaymentService, private cartService: CartService) { }
+  constructor(private router: Router, private checkout: PaymentService, private cartService: CartService, private commandService: OrderService) { }
 
   ngOnInit() {
     this.cartService.getProducts().subscribe(res => {
@@ -25,6 +27,7 @@ export class PaymentComponent implements OnInit {
     })
     console.log("Adresse de l'user  " + this.adresse)
     this.invokeStripe();
+    
   }
 
   makePayment(amount: number) {
@@ -71,7 +74,6 @@ export class PaymentComponent implements OnInit {
           },
         });
       };
-
       window.document.body.appendChild(script);
     }
   }

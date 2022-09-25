@@ -1,3 +1,13 @@
+@media screen and (max-width: 768px) {
+  .badge::after {
+    margin-left: 0px;
+  }
+
+  #lblCartCount::after { 
+    margin-left: 0px;
+  }
+}
+
 img {
     display: block;
     max-width: 5%;

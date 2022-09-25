@@ -34,6 +34,8 @@ import { CommentsComponent } from './comments/comments.component';
 import { CommentModalComponent } from './modals/comment-modal/comment-modal.component';
 import { CommentDeleteComponent } from './modals/comment-delete/comment-delete.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { SuccessModalComponent } from './modals/success-modal/success-modal.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommentsComponent,
     CommentModalComponent,
     CommentDeleteComponent,
+    PaymentSuccessComponent,
+    SuccessModalComponent,
   ],
   imports: [
     MatDialogModule,

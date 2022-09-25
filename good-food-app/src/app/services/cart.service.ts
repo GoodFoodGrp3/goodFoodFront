@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
 
+  public commandList = new BehaviorSubject<any>([]);
   public cartItemList : any = [];
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
@@ -17,9 +18,13 @@ export class CartService {
     console.log(this.productList)
   }
 
+  getCarts() {
+    return this.cartItemList
+  }
+
   setProduct(product : any) {
     this.cartItemList.push(...product);
-    this.productList.next(product);
+    this.productList.next(product); 
   }
 
   addToCart(product : any) {
@@ -48,5 +53,9 @@ export class CartService {
   removeAllCart() {
     this.cartItemList = []
     this.productList.next(this.cartItemList);
+  }
+
+  getCommand() {
+    return this.commandList.asObservable();
   }
 }

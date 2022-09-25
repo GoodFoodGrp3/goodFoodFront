@@ -1,3 +1,11 @@
+@media screen and (max-width: 768px) {
+  img {
+  width: 95%;
+  height: 95%;
+  }
+ }
+
+
 .mainCard {
   width: auto;
   height: 50rem;
@@ -36,4 +44,8 @@ a { color: inherit;
 
 .space {
   height: 15px;
+}
+
+img {
+  cursor: pointer;
 }
